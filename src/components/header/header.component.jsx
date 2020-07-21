@@ -9,15 +9,23 @@ import CartDropdown from '../cart-dropdown/cart-dropdown.component';
 import { selectCartHidden } from '../../redux/cart/cart.selectors';
 import { selectCurrentUser } from '../../redux/user/user.selectors';
 
-import { ReactComponent as Logo } from '../../assets/crown.svg';
+import { ReactComponent as Logo } from '../../assets/clothes (1).svg';
 
 import './header.styles.scss';
 
-const Header = ({ currentUser, hidden }) => (
+const Header = ({ currentUser, hidden }) => {
+
+return (
   <div className='header'>
     <Link className='logo-container' to='/'>
-      <Logo className='logo' />
+      <Logo className='logo'
+      height="60px"
+      width="60px"
+      style={{top:"5%"}}
+       />
     </Link>
+    <h1 className="header-title">The Groovy Store</h1>
+    
     <div className='options'>
       <Link className='option' to='/shop'>
         SHOP
@@ -39,6 +47,7 @@ const Header = ({ currentUser, hidden }) => (
     {hidden ? null : <CartDropdown />}
   </div>
 );
+      }
 
 const mapStateToProps = createStructuredSelector({
   currentUser: selectCurrentUser,
